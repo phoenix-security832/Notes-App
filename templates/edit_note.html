@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Note</h2>
+<form id="editForm">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="{{ note.title }}" required>
+    </div>
+    <div class="form-group">
+        <label>Content</label>
+        <textarea name="content" class="form-control" rows="5" required>{{ note.content }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Note</button>
+</form>
+
+<script>
+document.getElementById('editForm').onsubmit = function(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    fetch(window.location.href, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: formData.get('title'),
+            content: formData.get('content')
+        })
+    }).then(response => {
+        if (response.ok) {
+            window.location.href = "{{ url_for('notes') }}";
+        }
+    });
+};
+</script>
+{% endblock %}

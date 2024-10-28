@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Notes App</h1>
+    <p class="lead">A simple and secure way to manage your notes online.</p>
+    <hr class="my-4">
+    <p>Get started by creating an account or logging in if you already have one.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
+        <a class="btn btn-success btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+    </p>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Secure</h5>
+                <p class="card-text">Your notes are protected with secure authentication and stored safely.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Easy to Use</h5>
+                <p class="card-text">Simple and intuitive interface to manage your notes efficiently.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Accessible</h5>
+                <p class="card-text">Access your notes from anywhere, anytime.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
